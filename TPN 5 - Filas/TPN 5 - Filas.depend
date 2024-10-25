@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1697077359 source:c:\users\olmos\documents\tecnicatura universitaria en programacion\2. programacion 2\projectos\tpn 5 - filas\main.c
+	<stdio.h>
+	<stdlib.h>
+	<strings.h>
+	<time.h>
+

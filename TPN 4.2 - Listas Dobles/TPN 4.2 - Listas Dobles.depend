@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1695343219 source:c:\users\olmos\documents\tecnicatura universitaria en programacion\2. programacion 2\projectos\tpn 4.2 - listas dobles\main.c
+	<stdio.h>
+	<stdlib.h>
+	<strings.h>
+	<time.h>
+
