@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1699625145 source:c:\users\olmos\documents\tecnicatura universitaria en programacion\2. programacion 2\projectos\simulacro labo 2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<strings.h>
+

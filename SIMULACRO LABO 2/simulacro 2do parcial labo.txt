@@ -1,0 +1,107 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <strings.h>
+
+typedef struct {
+    int idEquipo;
+    char nombreEquipo[30];
+} stEquipo;
+
+typedef struct {
+    int idJugador;
+    int nroCamisetaJugador;
+    char nombreJugador[30];
+    int puntosAnotados;
+} stJugador;
+
+typedef struct {
+    int idEquipo;
+    char nombreEquipo[30];
+    int idJugador;
+    int nroCamisetaJugador;
+    char nombreJugador[30];
+    int puntosAnotados;
+} stJugadorEquipo;
+
+int main() {
+    char nombreArchivo[] = { "registroJugador.dat" };
+
+    //mostrarArchivo(nombreArchivo);
+
+    agregarJugadoresAListaDeLista(nombreArchivo);
+
+    return 0;
+}
+void mostrarArchivo(char nombreArchivo[]) {
+    stJugadorEquipo *bufferJugadorEquipo;
+    FILE *bufferArchivo = fopen(nombreArchivo, "rb");
+    if( bufferArchivo == NULL ) printf("\nNo se pudo abrir el archivo!");
+    if( bufferArchivo != NULL ) {
+        while( !feof(bufferArchivo) ) {
+            fread(bufferJugadorEquipo, sizeof(stJugadorEquipo), 1, bufferArchivo);
+            if( !feof(bufferArchivo) )
+                mostrarJugadorEquipo(bufferJugadorEquipo);
+        }
+    }
+    fclose(bufferArchivo);
+}
+void mostrarJugadorEquipo(stJugadorEquipo *jugadorEquipo) {
+    printf("\n --------------------------------------------------");
+    printf("\n idEquipo: %i", jugadorEquipo->idEquipo);
+    printf("\n nombreEquipo: %s", jugadorEquipo->nombreEquipo);
+    printf("\n idJugador: %i", jugadorEquipo->idJugador);
+    printf("\n nroCamisetaJugador: %i", jugadorEquipo->nroCamisetaJugador);
+    printf("\n nombreJugador: %c", jugadorEquipo->nombreJugador);
+    printf("\n puntosAnotados: %i", jugadorEquipo->puntosAnotados);
+    printf("\n --------------------------------------------------");
+}
+void agregarJugadoresAListaDeLista(char nombreArchivo[]) {
+    stJugadorEquipo *bufferJugadorEquipo;
+    stEquipo *bufferEquipo;
+    stJugador *bufferJugador;
+    FILE *bufferArchivo = fopen(nombreArchivo, "rb");
+    if( bufferArchivo == NULL ) printf("\nNo se pude abrir el archivo!");
+    if( bufferArchivo != NULL ) {
+        while( !feof(bufferArchivo) ) {
+            fread(bufferJugadorEquipo, sizeof(stJugadorEquipo), 1, bufferArchivo);
+            if( !feof(bufferArchivo) ) {
+                printf("\ntest1");
+                separarJugadorEquipo(bufferJugadorEquipo, bufferEquipo, bufferJugador);
+                printf("\ntest2");
+                mostrarEquipo(bufferEquipo);
+                printf("\ntest3");
+                mostrarJugador(bufferJugador);
+                printf("\ntest4");
+                //copiarEquiposALista();
+            }
+        }
+    }
+    fclose(bufferArchivo);
+}
+void mostrarEquipo(stEquipo *equipo) {
+    printf("\n ++++++++++++++++++++++++++++++");
+    printf("\n idEquipo: %i", equipo->idEquipo);
+    printf("\n nombreEquipo: %s", equipo->nombreEquipo);
+    printf("\n ++++++++++++++++++++++++++++++");
+}
+void mostrarJugador(stJugador *jugador) {
+    printf("\n ******************************");
+    printf("\n idJugador: %i", jugador->idJugador);
+    printf("\n nroCamisetaJugador: %i", jugador->nroCamisetaJugador);
+    printf("\n nombreJugador: %s", jugador->nombreJugador);
+    printf("\n puntosAnotados: %i", jugador->puntosAnotados);
+    printf("\n ******************************");
+}
+void separarJugadorEquipo(stJugadorEquipo *jugadorEquipo, stEquipo *equipo, stJugador *jugador) {
+    printf("\n in test 1");
+    printf("\n jugadorEquipo->idEquipo: %i")
+    equipo->idEquipo = jugadorEquipo->idEquipo;
+    printf("\n in test 2");
+    strcpy(equipo->nombreEquipo, jugadorEquipo->nombreEquipo);
+    printf("\n in test 3");
+
+    jugador->idJugador = jugadorEquipo->idJugador;
+    jugador->nroCamisetaJugador = jugadorEquipo->nroCamisetaJugador;
+    strcpy(jugador->nombreJugador, jugadorEquipo->nombreJugador);
+    jugador->puntosAnotados = jugadorEquipo->puntosAnotados;
+}

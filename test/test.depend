@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1692665076 source:c:\users\dasso\documents\utn programacion 1er cuatrimestre\2. programacion 2\projectos\test\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1695350392 source:c:\users\olmos\documents\tecnicatura universitaria en programacion\2. programacion 2\projectos\test\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<time.h>
+

@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1692652607 source:c:\users\dasso\documents\utn programacion 1er cuatrimestre\2. programacion 2\projectos\tpn 0 - repaso\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1693169745 source:c:\users\dasso\documents\utn programacion 1er cuatrimestre\2. programacion 2\projectos\tpn 2 - estructuras estaticas y dinamicas\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
